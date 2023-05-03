@@ -1,11 +1,14 @@
-var buttons = document.querySelectorAll('input[type="button"]');
-var screenDisplay = document.querySelector('input[type="text"]');
-var calcuation = [];
+"use strict";
+const buttons = document.querySelectorAll('input[type="button"]');
+const screenDisplay = document.querySelector('input[type="text"]');
+const calcuation = [];
 function calculate(button) {
+    if (!!!screenDisplay)
+        return;
     console.log("calculate");
-    var value = button.value;
+    const value = button.value;
     console.log(value);
-    var accuumulativeCalculation = calcuation.join('');
+    let accuumulativeCalculation = calcuation.join('');
     if (value === "AC") {
         screenDisplay.value = screenDisplay.value = "";
         console.log(calcuation.length = 0);
@@ -25,5 +28,5 @@ function calculate(button) {
     console.log(accuumulativeCalculation);
     screenDisplay.value = accuumulativeCalculation;
 }
-buttons.forEach(function (button) { return button.addEventListener('click', function () { return calculate(button); }); });
+buttons.forEach((button) => button.addEventListener('click', () => calculate(button)));
 console.log(buttons);
